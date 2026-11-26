@@ -38,5 +38,15 @@ npm run build
 
 ## Render Static Site 배포 설정
 
-- **Build Command**: `npm install && npm run build`
+이 저장소에는 Render 원클릭 배포를 위한 [render.yaml](render.yaml) Blueprint 및 [.node-version](.node-version) 설정이 포함되어 있습니다.
+
+### 방법 1: Blueprint (render.yaml) 자동 배포 (권장)
+1. [Render Dashboard](https://dashboard.render.com/) 접속 → **New +** → **Blueprint** 선택
+2. GitHub 저장소 `Kyumunhwang/ui_empty_screen` 연결
+3. `render.yaml` 자동 인식 후 **Apply** 클릭 (빌드 명령어, `dist` 배포 경로, SPA Rewrite 규칙, 캐시 헤더 자동 적용)
+
+### 방법 2: Static Site 수동 생성
+- **Build Command**: `npm ci && npm run build`
 - **Publish Directory**: `dist`
+- **Node Version**: `22.12.0` (`NODE_VERSION=22.12.0`)
+- **Redirect/Rewrite Rules**: Source `/*` → Destination `/index.html` (`Rewrite`)
